@@ -1,0 +1,162 @@
+---
+layout: article
+title: ancillary-import-USGS-WRS_v090.json
+categories: setup_processes
+excerpt:  Import Landsat WRS scene positions
+tags:: 
+    - ancillary-import-USGS-WRS
+date: 2021-11-08
+modified: 2021-11-08
+comments: true
+share: true
+---
+
+# ancillary import USGS WRS (setup_processes)
+
+###  Import Landsat WRS scene positions
+
+The json command file <span class='file'>ancillary-import-USGS-WRS_v090.json</span> is part of karttur's GeoImagine project <span class='project'>setup_processes</span>. Calling the json file will execute the following commands of the GeoImagine Framework.
+
+```
+{
+  "userproject": {
+    "userid": "karttur",
+    "projectid": "karttur",
+    "tractid": "karttur",
+    "siteid": "*",
+    "plotid": "*",
+    "system": "ancillary"
+  },
+  "process": [
+    {
+      "processid": "OrganizeAncillary",
+      "overwrite": false,
+      "parameters": {
+        "importcode": "shp",
+        "epsg": "4326",
+        "orgid": "USGS",
+        "dsname": "USGSWRS",
+        "source": "USGS",
+        "dsversion": "1.0",
+        "accessdate": "20050320",
+        "regionid": "globe",
+        "regioncat": "globe",
+        "dataurl": "",
+        "metaurl": "",
+        "title": "USGS Landsat WRS",
+        "label": "USGS Landsat WRS scene positions"
+      },
+      "srcpath": {
+        "volume": ".",
+        "hdr": "shp",
+        "dat": ""
+      },
+      "dstpath": {
+        "volume": "geoinfo2021",
+        "hdr": "shp",
+        "dat": ""
+      },
+      "srcraw": [
+        {
+          "wrs1ascdesc": {
+            "datadir": "data/USGS/wrs1_asc_desc",
+            "datafile": "wrs1_asc_desc",
+            "datalayer": "wrs1_asc_desc",
+            "title": "Landsat WRS1 ascending and descending scene positions",
+            "label": "Landsat WRS1 ascending and descending scene positions"
+          }
+        },
+        {
+          "wrs2ascdesc": {
+            "datadir": "data/USGS/wrs2_asc_desc",
+            "datafile": "wrs2_asc_desc",
+            "datalayer": "wrs2_asc_desc",
+            "title": "Landsat WRS2 ascending and descending scene positions",
+            "label": "Landsat WRS2 ascending and descending scene positions"
+          }
+        },
+        {
+          "wrs1desc": {
+            "datadir": "data/USGS/wrs1_descending",
+            "datafile": "wrs1_descending",
+            "datalayer": "wrs1_descending",
+            "title": "Landsat WRS1 descending scene positions",
+            "label": "Landsat WRS1 descending scene positions"
+          }
+        },
+        {
+          "wrs2desc": {
+            "datadir": "data/USGS/wrs2_descending",
+            "datafile": "wrs2_descending",
+            "datalayer": "wrs2_descending",
+            "title": "Landsat WRS2 descending scene positions",
+            "label": "Landsat WRS2 descending scene positions"
+          }
+        }
+      ],
+      "dstcomp": [
+        {
+          "wrs1ascdesc": {
+            "masked": "Y",
+            "measure": "N",
+            "source": "USGS",
+            "product": "wrs",
+            "content": "wrspos",
+            "layerid": "wrs1ascdesc",
+            "prefix": "wrs1ascdesc",
+            "suffix": "0",
+            "dataunit": "boundary",
+            "celltype": "vector",
+            "cellnull": "-32768"
+          }
+        },
+        {
+          "wrs2ascdesc": {
+            "masked": "Y",
+            "measure": "N",
+            "source": "USGS",
+            "product": "wrs",
+            "content": "wrspos",
+            "layerid": "wrs2ascdesc",
+            "prefix": "wrs2ascdesc",
+            "suffix": "0",
+            "dataunit": "boundary",
+            "celltype": "vector",
+            "cellnull": "-32768"
+          }
+        },
+        {
+          "wrs1desc": {
+            "masked": "Y",
+            "measure": "N",
+            "source": "USGS",
+            "product": "wrs",
+            "content": "wrspos",
+            "layerid": "wrs1desc",
+            "prefix": "wrs1desc",
+            "suffix": "0",
+            "dataunit": "boundary",
+            "celltype": "vector",
+            "cellnull": "-32768"
+          }
+        },
+        {
+          "wrs2desc": {
+            "masked": "Y",
+            "measure": "N",
+            "source": "USGS",
+            "product": "wrs",
+            "content": "wrspos",
+            "layerid": "wrs2desc",
+            "prefix": "wrs2desc",
+            "suffix": "0",
+            "dataunit": "boundary",
+            "celltype": "vector",
+            "cellnull": "-32768"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
