@@ -1,21 +1,21 @@
 ---
 layout: article
-title: ancillary-import-USGS-WRS_v090.json
+title: ancillary-import-USGS-WRS-quadrangle_v090.json
 categories: setup_processes
-excerpt:  Import Landsat WRS scene positions
+excerpt: \# Import Landsat WRS scene positions as quadrangles
 tags:: 
-    - ancillary-import-USGS-WRS
-date: 2021-11-08
-modified: 2021-11-08
+    - json/ancillary-import-USGS-WRS-quadrangle
+date: 2021-12-16
+modified: 2021-12-16
 comments: true
 share: true
 ---
 
-# ancillary import USGS WRS (setup_processes)
+# json/ancillary import USGS WRS quadrangle (setup_processes)
 
-###  Import Landsat WRS scene positions
+### \# Import Landsat WRS scene positions as quadrangles
 
-The json command file <span class='file'>ancillary-import-USGS-WRS_v090.json</span> is part of karttur's GeoImagine project <span class='project'>setup_processes</span>. Calling the json file will execute the following commands of the GeoImagine Framework.
+The json command file <span class='file'>ancillary-import-USGS-WRS-quadrangle_v090.json</span> is part of karttur's GeoImagine project <span class='project'>setup_processes</span>. Calling the json file will execute the following commands of the GeoImagine Framework.
 
 ```
 {
@@ -36,7 +36,6 @@ The json command file <span class='file'>ancillary-import-USGS-WRS_v090.json</sp
         "epsg": "4326",
         "orgid": "USGS",
         "dsname": "USGSWRS",
-        "source": "USGS",
         "dsversion": "1.0",
         "accessdate": "20050320",
         "regionid": "globe",
@@ -44,7 +43,10 @@ The json command file <span class='file'>ancillary-import-USGS-WRS_v090.json</sp
         "dataurl": "",
         "metaurl": "",
         "title": "USGS Landsat WRS",
-        "label": "USGS Landsat WRS scene positions"
+        "label": "USGS Landsat WRS scene positions",
+        "tolerance": 0.1,
+        "angletolerance": 0,
+        "quadrangle": true
       },
       "srcpath": {
         "volume": ".",
@@ -52,7 +54,7 @@ The json command file <span class='file'>ancillary-import-USGS-WRS_v090.json</sp
         "dat": ""
       },
       "dstpath": {
-        "volume": "geoinfo2021",
+        "volume": "GeoImg2021",
         "hdr": "shp",
         "dat": ""
       },
@@ -60,8 +62,8 @@ The json command file <span class='file'>ancillary-import-USGS-WRS_v090.json</sp
         {
           "wrs1ascdesc": {
             "datadir": "data/USGS/wrs1_asc_desc",
-            "datafile": "wrs1_asc_desc",
-            "datalayer": "wrs1_asc_desc",
+            "datafile": "wrs1ascdesc_wrs_global_0_quad",
+            "datalayer": "wrs1ascdesc_wrs_global_0_quad",
             "title": "Landsat WRS1 ascending and descending scene positions",
             "label": "Landsat WRS1 ascending and descending scene positions"
           }
@@ -69,8 +71,8 @@ The json command file <span class='file'>ancillary-import-USGS-WRS_v090.json</sp
         {
           "wrs2ascdesc": {
             "datadir": "data/USGS/wrs2_asc_desc",
-            "datafile": "wrs2_asc_desc",
-            "datalayer": "wrs2_asc_desc",
+            "datafile": "wrs2ascdesc_wrs_global_0_quad",
+            "datalayer": "wrs2ascdesc_wrs_global_0_quad",
             "title": "Landsat WRS2 ascending and descending scene positions",
             "label": "Landsat WRS2 ascending and descending scene positions"
           }
@@ -78,8 +80,8 @@ The json command file <span class='file'>ancillary-import-USGS-WRS_v090.json</sp
         {
           "wrs1desc": {
             "datadir": "data/USGS/wrs1_descending",
-            "datafile": "wrs1_descending",
-            "datalayer": "wrs1_descending",
+            "datafile": "wrs1desc_wrs_global_0_quad",
+            "datalayer": "wrs1desc_wrs_global_0_quad",
             "title": "Landsat WRS1 descending scene positions",
             "label": "Landsat WRS1 descending scene positions"
           }
@@ -87,8 +89,8 @@ The json command file <span class='file'>ancillary-import-USGS-WRS_v090.json</sp
         {
           "wrs2desc": {
             "datadir": "data/USGS/wrs2_descending",
-            "datafile": "wrs2_descending",
-            "datalayer": "wrs2_descending",
+            "datafile": "wrs2desc_wrs_global_0_quad",
+            "datalayer": "wrs2desc_wrs_global_0_quad",
             "title": "Landsat WRS2 descending scene positions",
             "label": "Landsat WRS2 descending scene positions"
           }
@@ -97,62 +99,62 @@ The json command file <span class='file'>ancillary-import-USGS-WRS_v090.json</sp
       "dstcomp": [
         {
           "wrs1ascdesc": {
-            "masked": "Y",
-            "measure": "N",
             "source": "USGS",
             "product": "wrs",
             "content": "wrspos",
             "layerid": "wrs1ascdesc",
             "prefix": "wrs1ascdesc",
-            "suffix": "0",
+            "suffix": "quad",
             "dataunit": "boundary",
             "celltype": "vector",
-            "cellnull": "-32768"
+            "cellnull": "-32768",
+            "masked": "Y",
+            "measure": "N"
           }
         },
         {
           "wrs2ascdesc": {
-            "masked": "Y",
-            "measure": "N",
             "source": "USGS",
             "product": "wrs",
             "content": "wrspos",
             "layerid": "wrs2ascdesc",
             "prefix": "wrs2ascdesc",
-            "suffix": "0",
+            "suffix": "quad",
             "dataunit": "boundary",
             "celltype": "vector",
-            "cellnull": "-32768"
+            "cellnull": "-32768",
+            "masked": "Y",
+            "measure": "N"
           }
         },
         {
           "wrs1desc": {
-            "masked": "Y",
-            "measure": "N",
             "source": "USGS",
             "product": "wrs",
             "content": "wrspos",
             "layerid": "wrs1desc",
             "prefix": "wrs1desc",
-            "suffix": "0",
+            "suffix": "quad",
             "dataunit": "boundary",
             "celltype": "vector",
-            "cellnull": "-32768"
+            "cellnull": "-32768",
+            "masked": "Y",
+            "measure": "N"
           }
         },
         {
           "wrs2desc": {
-            "masked": "Y",
-            "measure": "N",
             "source": "USGS",
             "product": "wrs",
             "content": "wrspos",
             "layerid": "wrs2desc",
             "prefix": "wrs2desc",
-            "suffix": "0",
+            "suffix": "quad",
             "dataunit": "boundary",
             "celltype": "vector",
-            "cellnull": "-32768"
+            "cellnull": "-32768",
+            "masked": "Y",
+            "measure": "N"
           }
         }
       ]
